@@ -5,7 +5,22 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise'
+gem 'materialize-sass', '~> 0.99.0'
+gem 'material_icons'
+gem 'redis'
+gem 'sidekiq'
 
+group :test do
+  gem "factory_bot_rails"
+  gem "ffaker"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
@@ -35,10 +50,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
